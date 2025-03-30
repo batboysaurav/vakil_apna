@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Wilson - Attorney at Law</title>
+    <meta name="description" content="Dedicated legal representation with expertise and integrity" />
+    <meta name="author" content="James Wilson" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+
+          .map-container {
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 450px; /* Adjust height as needed */
+    border: 0;
+    display: block;
+  }
+
+        
+        /* Reset and Base Styles */
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #1A1F2C;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #6E59A5;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #7E69AB;
+        }
+        
+        /* Header Styles */
+        .header {
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #6E59A5;
+            font-family: 'Georgia', serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links li a {
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links li a:hover {
+            color: #6E59A5;
+        }
+        
+        .contact-button {
+            background-color: #6E59A5;
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 4px;
+            transition: background-color 0.3s !important;
+        }
+        
+        .contact-button:hover {
+            background-color: #9b87f5;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdnbbsr.s3waas.gov.in/s3ec0490f1f4972d133619a60c30f3559e/uploads/2023/10/SCI-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #f8f9fa;
+        }
+        
+        .btn-primary {
+            background-color: #6E59A5;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9b87f5;
+            color: white;
+        }
+        
+        /* Practice Areas Section */
+        .practice-areas {
+            padding: 5rem 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .practice-areas h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .practice-areas h2:after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #6E59A5;
+            margin: 1rem auto;
+        }
+        
+        .area-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .area-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+        
+        .area-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .area-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .area-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1A1F2C;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image img {
+            border-radius: 8px;
+            width: 100%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-text .subtitle {
+            color: #6E59A5;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .credentials {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .credential {
+            text-align: center;
+        }
+        
+        .credential-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #6E59A5;
+        }
+        
+        .credential-text {
+            display: block;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .testimonials h2:after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #6E59A5;
+            margin: 1rem auto;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .quote {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 3px solid #6E59A5;
+        }
+        
+        .client-name {
+            font-weight: bold;
+            color: #1A1F2C;
+        }
+        
+        .client-title {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-details {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1A1F2C;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo a {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .footer-logo p {
+            color: #aaa;
+            margin-top: 0.5rem;
+        }
+        
+        .footer h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer a {
+            color: #aaa;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: #6E59A5;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            font-size: 20px;
+        }
+        
+        .social-icon:hover {
+            background-color: #6E59A5;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .copyright p {
+            color: #aaa;
+        }
+        
+        .legal-links {
+            margin-top: 0.5rem;
+        }
+        
+        .legal-links a {
+            color: #aaa;
+            margin: 0 0.5rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .area-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: #333;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</head>
+<body>
+    <div class="lawyer-portfolio">
+        <header class="header">
+            <div class="container">
+                <nav class="navbar">
+                    <a href="/" class="logo">Vakil Apna</a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" style="display: none;">☰</button>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact" class="contact-button">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Legal Solutions Made Easy</h1>
+                <p>Your trusted partner in legal matters, ensuring expert guidance at every step.</p>
+                <a href="#contact" class="btn-primary">Get Legal Advice</a>
+            </div>
+        </section>
+
+        <section id="services" class="practice-areas">
+            <div class="container">
+                <h2>Our Services in Delhi</h2>
+                <div class="area-grid">
+                    <div class="area-item">
+                        <div class="area-icon">⚖️</div>
+                        <h3>Criminal Lawyer</h3>
+                        <p>Defends clients in criminal cases, from minor charges to serious crimes, ensuring fair trials and legal protection.</p>
+                    </div>
+                    <div class="area-item">
+                        <div class="area-icon">🏢</div>
+                        <h3>Civil Lawyer</h3>
+                        <p>Handles non-criminal disputes like property conflicts, contracts, and personal injury claims for fair resolutions.</p>
+                    </div>
+                    <div class="area-item">
+                        <div class="area-icon">📜</div>
+                        <h3>Marriage Lawyer</h3>
+                        <p>Assists with prenups, marital agreements, and legal rights to protect couples before and during marriage.</p>
+                    </div>
+                    <div class="area-item">
+                        <div class="area-icon">💼</div>
+                        <h3>Divorce Layer</h3>
+                        <p>Guides couples through separations, handling custody, alimony, and asset division for a smooth legal split.</p>
+                    </div>
+                    <div class="area-item">
+                        <div class="area-icon">📝</div>
+                        <h3>corporate Lawyer</h3>
+                        <p>Advises businesses on legal compliance, contracts, mergers, and disputes to ensure smooth operations.</p>
+                    </div>
+                    <div class="area-item">
+                        <div class="area-icon">📝</div>
+                        <h3>Customs Lawyer</h3>
+                        <p>Specializes in trade laws, tariffs, and import/export regulations to help businesses avoid legal issues.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div style="margin: 50px; font-family: 'ky-heading',sans-serif;"> <h2>Feel Free to Contact For Any Legal Help!
+            &
+            Know your Legal Rights and Remedies!</h2></div>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://www.vakilapna.com/g.jpg" alt="G.K. Jha">
+                        <h2 style="text-align: center;"> CEO & Founder</h2>
+                        <p style="text-align: center;">G.K. Jha  (Advocate) </p>
+                    </div>
+                    <div class="about-text">
+                        <h2>About Vakil Apna</h2>
+                        <p class="subtitle">Your Legal Ally</p>
+                        <p>Best Lawyers / Advocates in Delhi/ NCR, Vakil Apna is a trusted platform providing legal solutions to individuals and businesses across India. Our mission is to simplify the legal process by offering affordable and accessible services.</p>
+                        <p>We connect clients with experienced legal professionals to ensure seamless legal assistance tailored to their specific needs.</p>
+                        <p>Provide you to free legal advice and get the best lawyers or advocates in Delhi for District Courts, High Court and Supreme Court matters. Call now and get the best laawyer and advocate in Delhi for your legal matter. Get best lawyers in Delhi for family dispute or divorce matters, property matter, Customs, criminal matter, recovery or cheque bounce matters, corporate matters, or a lawyer expert in all field of law.Lawyers in all major localities of Delhi including Patiala House Court, Dwarka Court, Rohini Court, Rouse Avenue Court, Saket Court, Tis Hazari Court, Karkardooma Court,New Delhi, Delhi, Central Delhi, South Delhi, North Delhi, East Delhi, West Delhi and many more. Lawyers practice in all major courts in Delhi including Delhi High Court, Tis Hazari Court, Patiala House Court, Saket Court Delhi, Rohini Court, and others.</p>
+                        <div class="credentials">
+                            <div class="credential">
+                                <span class="credential-number">10+</span>
+                                <span class="credential-text">Years Experience</span>
+                            </div>
+                            <div class="credential">
+                                <span class="credential-number">2000+</span>
+                                <span class="credential-text">Happy Clients</span>
+                            </div>
+                            <div class="credential">
+                                <span class="credential-number">100%</span>
+                                <span class="credential-text">Client Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+       <div class="map-container">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12119.279913740254!2d77.24134291671672!3d28.613771276441017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3da9c7d4fc5%3A0xb3eef3b7f8386c8d!2sVakil%20Apna%20%7C%20Lawyer!5e0!3m2!1sen!2sin!4v1743333126466!5m2!1sen!2sin" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>Client Testimonials</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-item">
+                        <div class="quote">"Vakil Apna helped me with property registration. Their service was fast, professional, and stress-free."</div>
+                        <div class="client">
+                            <div class="client-name">Anjali Sharma</div>
+                            <div class="client-title">Homeowner</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="quote">"They made the process of incorporating my business incredibly simple and provided ongoing legal support."</div>
+                        <div class="client">
+                            <div class="client-name">Ravi Verma</div>
+                            <div class="client-title">Entrepreneur</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="quote">"I appreciate their dedication and clarity in explaining complex legal matters to me."</div>
+                        <div class="client">
+                            <div class="client-name">Priya Kapoor</div>
+                            <div class="client-title">Private Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Contact Us</h2>
+                        <p>Reach out to Vakil Apna to discuss your legal concerns and get expert guidance.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">📍</div>
+                                <div>
+                                    <h4>Address</h4>
+                                    <p>Chamber:- 952, Patiala House Court, New Delhi - 110001, Near - India Gate </br></br>
+                                        Office:- E-2, Basement Lajpat Nagar-1, New Delhi - 110024</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📞</div>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+91 99719 21899</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">✉️</div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>vakilapna01@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" placeholder="Your Phone">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <a href="/">Vakil Apna</a>
+                        <p>Your Legal Partner</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Our Services</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Connect</h4>
+                        <div class="social-icons">
+                            <a href="#" aria-label="LinkedIn"><span class="social-icon">in</span></a>
+                            <a href="#" aria-label="Twitter"><span class="social-icon">X</span></a>
+                            <a href="#" aria-label="Facebook"><span class="social-icon">f</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Vakil Apna. All Rights Reserved.</p>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Simple form validation
+                    if (!name || !email || !message) {
+                        alert('Please fill in all required fields');
+                        return;
+                    }
+                    
+                    // Here you would typically send the form data to a server
+                    // For this demo, we'll just show a success message
+                    alert('Thank you for your message! We will contact you soon.');
+                    contactForm.reset();
+                });
+            }
+            
+            // Responsive navigation adjustments
+            function checkScreenSize() {
+                if (window.innerWidth <= 768) {
+                    if (mobileMenuBtn) mobileMenuBtn.style.display = 'block';
+                    if (navLinks) navLinks.style.display = 'none';
+                } else {
+                    if (mobileMenuBtn) mobileMenuBtn.style.display = 'none';
+                    if (navLinks) navLinks.style.display = 'flex';
+                }
+            }
+            
+            // Initial check
+            checkScreenSize();
+            
+            // Listen for window resize
+            window.addEventListener('resize', checkScreenSize);
+        });
+    </script>
+</body>
+</html>
